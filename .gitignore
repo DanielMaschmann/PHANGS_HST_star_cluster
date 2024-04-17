@@ -165,7 +165,7 @@ cython_debug/
 *.fits
 *.fit
 *.pdf
-*.npy
+#*.npy
 *.npz
 *.pyc
 *.png
