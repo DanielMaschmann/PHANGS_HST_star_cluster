@@ -5,6 +5,18 @@ from urllib3 import PoolManager
 from astropy.nddata import Cutout2D
 import astropy.units as u
 import warnings
+from dust_extinction.parameter_averages import CCM89
+
+def color_ext_ccm89_av(wave1, wave2, av, r_v=3.1):
+
+    model_ccm89 = CCM89(Rv=r_v)
+    reddening1 = model_ccm89(wave1*u.micron) * r_v
+    reddening2 = model_ccm89(wave2*u.micron) * r_v
+
+    wave_v = 5388.55 * 1e-4
+    reddening_v = model_ccm89(wave_v*u.micron) * r_v
+
+    return (reddening1 - reddening2)*av/reddening_v
 
 
 def get_img_cutout(img, wcs, coord, cutout_size):
