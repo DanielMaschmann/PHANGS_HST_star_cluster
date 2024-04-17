@@ -1,11 +1,9 @@
 import numpy as np
-import dust_tools.extinction_tools
-import os
-from urllib3 import PoolManager
 from astropy.nddata import Cutout2D
 import astropy.units as u
 import warnings
 from dust_extinction.parameter_averages import CCM89
+
 
 def color_ext_ccm89_av(wave1, wave2, av, r_v=3.1):
 
