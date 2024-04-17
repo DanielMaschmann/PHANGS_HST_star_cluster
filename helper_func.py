@@ -97,10 +97,8 @@ def plot_reddening_vect(ax,
     y_wave_1 *= 1e-4
     y_wave_2 *= 1e-4
     # calculate the color difference from reddening
-    color_ext_x = dust_tools.extinction_tools.ExtinctionTools.color_ext_ccm89_av(wave1=x_wave_1, wave2=x_wave_2,
-                                                                                 av=av_value_mag)
-    color_ext_y = dust_tools.extinction_tools.ExtinctionTools.color_ext_ccm89_av(wave1=y_wave_1, wave2=y_wave_2,
-                                                                                 av=av_value_mag)
+    color_ext_x = color_ext_ccm89_av(wave1=x_wave_1, wave2=x_wave_2, av=av_value_mag)
+    color_ext_y = color_ext_ccm89_av(wave1=y_wave_1, wave2=y_wave_2, av=av_value_mag)
     # plot arrow annotation with the calculated color differences
     ax.annotate('', xy=(init_x_color + color_ext_x, init_y_color + color_ext_y), xycoords='data',
                 xytext=(init_x_color, init_y_color), fontsize=text_font_size,
